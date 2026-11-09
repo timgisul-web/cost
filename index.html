@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>적정 공사비 판정</title>
+<style>
+body{margin:0;min-height:100vh;display:grid;place-items:center;background:#f3f5f4;color:#5b6a66;font:14px "Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif}
+@media (prefers-color-scheme: dark){body{background:#121816;color:#97a6a1}}
+</style>
+</head>
+<body>
+<p id="msg">화면을 불러오는 중입니다…</p>
+<script>
+var EXEC = "https://script.google.com/macros/s/AKfycbzr6SlN5aGTp4tQGHA107dB10V7pS1cTz3WBzZtNtD8lmxYESOqI7t07ZTcf05A0EhwQw/exec";
+fetch(EXEC + "?raw=1", { credentials: "omit" })
+  .then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
+  .then(function (html) { document.open(); document.write(html); document.close(); })
+  .catch(function () { document.getElementById("msg").textContent = "화면을 불러오지 못했습니다. 잠시 후 새로고침해 주세요."; });
+</script>
+</body>
+</html>
